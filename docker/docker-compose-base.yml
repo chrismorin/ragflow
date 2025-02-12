@@ -75,6 +75,9 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
       - TZ=${TIMEZONE}
     command:
+      --bind-address=0.0.0.0
+      --skip-host-cache
+      --skip-name-resolve
       --max_connections=1000
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_unicode_ci
