@@ -14,15 +14,9 @@ services:
       - 9443:443
     volumes:
       - ./ragflow-logs:/ragflow/logs
-      - type: bind
-        source: ./nginx/ragflow.conf
-        target: /etc/nginx/conf.d/ragflow.conf
-      - type: bind
-        source: ./nginx/proxy.conf  
-        target: /etc/nginx/proxy.conf
-      - type: bind
-        source: ./nginx/nginx.conf
-        target: /etc/nginx/nginx.conf
+      - /mnt/user/ragnginx/ragflow.conf:/etc/nginx/conf.d/ragflow.conf
+      - /mnt/user/ragnginx/proxy.conf:/etc/nginx/proxy.conf
+      - /mnt/user/ragnginx/nginx.conf:/etc/nginx/nginx.conf
     env_file: .env
     environment:
       - TZ=${TIMEZONE}
