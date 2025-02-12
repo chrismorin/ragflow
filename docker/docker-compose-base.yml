@@ -73,6 +73,8 @@ services:
     env_file: .env
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=rag_flow
+      - MYSQL_ROOT_HOST=%
       - TZ=${TIMEZONE}
     command:
       --bind-address=0.0.0.0
