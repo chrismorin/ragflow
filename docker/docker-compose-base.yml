@@ -42,7 +42,7 @@ services:
     image: infiniflow/infinity:v0.6.0-dev3
     volumes:
       - infinity_data:/var/infinity
-      - ./infinity_conf.toml:/infinity_conf.toml
+      - ./mnt/user/raginit/infinity/infinity_conf.toml:/infinity_conf.toml
     command: ["-f", "/infinity_conf.toml"]
     ports:
       - ${INFINITY_THRIFT_PORT}:23817
@@ -90,7 +90,7 @@ services:
       - ${MYSQL_PORT}:3306
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./init.sql:/data/application/init.sql
+      - ./mnt/user/raginit/sql/init.sql:/data/application/init.sql
     networks:
       - ragflow
     healthcheck:
